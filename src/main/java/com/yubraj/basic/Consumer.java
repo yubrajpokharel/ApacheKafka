@@ -1,4 +1,4 @@
-package com.yubraj;
+package com.yubraj.basic;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -14,10 +14,10 @@ import java.util.Properties;
 public class Consumer {
     public static void main(String[] args) {
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers", "localhost:9092");
-        properties.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        properties.setProperty("group.id", "testGroup");
+        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        properties.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+        properties.put("group.id", "testGroup");
 
         KafkaConsumer<String , String > consumer = new KafkaConsumer<String, String>(properties);
         List<String > myTopics = new ArrayList<String>();

@@ -1,4 +1,4 @@
-package com.yubraj;
+package com.yubraj.basic;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
@@ -12,14 +12,14 @@ public class Producer {
 
     public static void main(String[] args) {
         Properties properties = new Properties();
-        properties.setProperty("bootstrap.servers", "localhost:9092");
-        properties.setProperty("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
-        properties.setProperty("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        properties.put("bootstrap.servers", "localhost:9092");
+        properties.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        properties.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
 
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
 
         try{
-            for (int i = 200; i < 250; i++) {
+            for (int i = 300; i < 310; i++) {
                 kafkaProducer.send(new ProducerRecord<String, String>("my-first-topic",  //topic
                                                                       //3,                //partition
                                                                       "message-Key-"+Integer.toString(i),          //key
