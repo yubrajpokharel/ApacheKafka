@@ -19,10 +19,10 @@ public class Producer {
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<String, String>(properties);
 
         try{
-            for (int i = 0; i < 100; i++) {
+            for (int i = 200; i < 250; i++) {
                 kafkaProducer.send(new ProducerRecord<String, String>("my-first-topic",  //topic
-                                                                      0,                //partition
-                                                                      "message-1",          //key
+                                                                      //3,                //partition
+                                                                      "message-Key-"+Integer.toString(i),          //key
                                                                       "Message Value : "+Integer.toString(i) //value
                                                                      ));
             }
